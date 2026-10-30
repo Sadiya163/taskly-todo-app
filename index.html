@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly - To Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="app">
+    <header class="topbar">
+        <a class="brand" href="#">✓ taskly</a>
+        <span id="todayLabel"></span>
+    </header>
+
+    <section class="hero">
+        <div>
+            <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+            <h1>Make today<br><span>count.</span></h1>
+            <p class="hero-copy">A little progress every day adds up to big results.</p>
+        </div>
+        <div class="hero-art">
+            <div class="art-circle"></div>
+            <div class="art-card">
+                <span>✦</span>
+                <strong>One task<br>at a time.</strong>
+                <small>YOU'VE GOT THIS</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <article class="stat-card">
+            <span class="stat-icon purple">▤</span>
+            <div><strong id="totalCount">0</strong><small>Total tasks</small></div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon green">✓</span>
+            <div><strong id="completedCount">0</strong><small>Completed</small></div>
+        </article>
+        <article class="stat-card">
+            <span class="stat-icon orange">◷</span>
+            <div><strong id="pendingCount">0</strong><small>Pending</small></div>
+        </article>
+    </section>
+
+    <section class="workspace">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">STAY ON TRACK</p>
+                <h2>My tasks</h2>
+            </div>
+            <span class="task-counter" id="taskCounter">0 tasks</span>
+        </div>
+
+        <form id="taskForm" class="task-form">
+            <input id="taskInput" type="text"
+                placeholder="What do you need to get done?" required>
+            <input id="taskDate" type="date" aria-label="Due date">
+            <input id="taskTime" type="time" aria-label="Due time">
+            <button class="add-btn" type="submit">＋ Add task</button>
+        </form>
+
+        <div class="toolbar">
+            <div class="filters">
+                <button class="filter active" data-filter="all" type="button">All</button>
+                <button class="filter" data-filter="pending" type="button">Pending</button>
+                <button class="filter" data-filter="completed" type="button">Completed</button>
+            </div>
+
+            <label class="search-box">
+                <span>⌕</span>
+                <input id="searchInput" type="search" placeholder="Search tasks...">
+            </label>
+        </div>
+
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+        <p class="footer-note">Your tasks are saved automatically on this device.</p>
+    </section>
+
+    <footer>Made for focused days ✦</footer>
+</main>
+
+<dialog id="editDialog" class="edit-dialog">
+    <form id="editForm">
+        <div class="dialog-heading">
+            <div>
+                <p class="eyebrow">MAKE A CHANGE</p>
+                <h2>Edit task</h2>
+            </div>
+            <button type="button" id="closeDialog" class="close-btn">×</button>
+        </div>
+
+        <label for="editTitle">Task name</label>
+        <input id="editTitle" type="text" maxlength="120" required>
+
+        <div class="date-fields">
+            <div>
+                <label for="editDate">Due date</label>
+                <input id="editDate" type="date">
+            </div>
+            <div>
+                <label for="editTime">Due time</label>
+                <input id="editTime" type="time">
+            </div>
+        </div>
+
+        <div class="dialog-actions">
+            <button type="button" id="cancelEdit" class="cancel-btn">Cancel</button>
+            <button type="submit" class="add-btn">Save changes</button>
+        </div>
+    </form>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
